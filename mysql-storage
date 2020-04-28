@@ -1,0 +1,9 @@
+/var/log/mysql/*log {
+    missingok
+    notifempty
+    sharedscripts
+    delaycompress
+    postrotate
+        /bin/systemctl reload mysqld.service > /dev/null 2>/dev/null || true
+    endscript
+}
